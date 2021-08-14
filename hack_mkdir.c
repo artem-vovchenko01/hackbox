@@ -1,25 +1,21 @@
 #include "hackbox.h"
-#define DIR_EXISTS "mkdir: cannot create directory \"%s\": File exists\n"
+#include <errno.h>
+
+#define ERR_MSG "mkdir: cannot create directory '%s': %s\n"
+#define DIR_PERM 0755
 
 int hack_mkdir(char **args, int n)
 {
-    int ret = 0;
-    struct stat dir_stat = {0};
+    int ret, lasterr = 0;
     while (n-- > 0)
     {
-        if (stat(*args, &dir_stat) == -1)
+        if ((ret = mkdir(*args, DIR_PERM)))
         {
-            mkdir(*args, 0755);
-        }
-        else
-        {
-            fprintf(stderr, DIR_EXISTS, *args);
-            ret = 1;
+            fprintf(stderr, ERR_MSG, *args, strerror(errno));
+            lasterr = ret;
         }
         args++;
     }
-    return ret;
+    return lasterr;
 }
-
-
 
