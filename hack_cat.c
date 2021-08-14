@@ -1,7 +1,7 @@
 #include "hackbox.h"
 #include <stdio.h>
-#define NO_FILE "No such file or directory"
-#define NO_PERM "Permission denied"
+#define NO_FILE "cat: %s: No such file or directory\n"
+#define NO_PERM "cat: %s: Permission denied\n"
 
 int hack_cat(char **files, int n)
 {
@@ -23,13 +23,13 @@ int hack_cat(char **files, int n)
             }
             else
             {
-                fprintf(stderr, "%s: %s\n", *files, NO_PERM);
+                fprintf(stderr, NO_PERM, *files);
                 ret_val = 1;
             }
         }
         else
         {
-            fprintf(stderr, "%s: %s\n", *files, NO_FILE);
+            fprintf(stderr, NO_FILE, *files);
             ret_val = 1;
         }
         files++;

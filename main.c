@@ -26,7 +26,7 @@ int main(int argc, char **argv)
     } 
     else if (strcmp(bin_name, "mkdir") == 0)
     {
-        printf("mkdir\n");
+        return hack_mkdir(argv, argc);
     }
     else if (strcmp(bin_name, "cat") == 0)
     {
