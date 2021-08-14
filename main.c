@@ -35,7 +35,7 @@ int main(int argc, char **argv)
     }
     else if (strcmp(bin_name, "cp") == 0)
     {
-        printf("cp\n");
+        return hack_cp(argv, argc);
     }
     else if (strcmp(bin_name, "help") == 0)
     {
