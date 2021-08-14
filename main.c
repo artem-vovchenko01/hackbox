@@ -1,3 +1,4 @@
+#include "hackbox_include.h"
 #include "hackbox.h"
 #include <stdio.h>
 #include <string.h>
@@ -22,7 +23,7 @@ int main(int argc, char **argv)
     argc--;
     if (strcmp(bin_name, "ls") == 0)
     {
-        printf("ls\n");
+        return hack_ls(argv, argc);
     } 
     else if (strcmp(bin_name, "mkdir") == 0)
     {

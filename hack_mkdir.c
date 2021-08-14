@@ -1,3 +1,4 @@
+#include "hackbox_include.h"
 #include "hackbox.h"
 #include <errno.h>
 
@@ -5,7 +6,7 @@
 #define DIR_PERM 0755
 #define ERR_NO_ARGS "mkdir: missing operand\n"
 
-int hack_mkdir(char **args, int n)
+int hack_mkdir(char **files, int n)
 {
     int ret = 0;
     if (n == 0)
@@ -15,12 +16,12 @@ int hack_mkdir(char **args, int n)
     }
     while (n-- > 0)
     {
-        if (mkdir(*args, DIR_PERM))
+        if (mkdir(*files, DIR_PERM))
         {
-            fprintf(stderr, ERR_MSG, *args, strerror(errno));
+            fprintf(stderr, ERR_MSG, *files, strerror(errno));
             ret = 1;
         }
-        args++;
+        files++;
     }
     return ret;
 }

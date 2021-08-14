@@ -1,3 +1,4 @@
+#include "hackbox_include.h"
 #include "hackbox.h"
 #include <stdio.h>
 #define NO_FILE "cat: %s: No such file or directory\n"
