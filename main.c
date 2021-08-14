@@ -3,6 +3,12 @@
 #include <stdio.h>
 #include <string.h>
 #include "utils/hack_utils.h"
+#define HELP "Avaialable commands: \n"          \
+"hackbox mkdir <dirnames> \n"                   \
+"hackbox ls [ -l ] [ <dirnames> ] \n"           \
+"hackbox cp <src> [ <more_srcs> ] <dest> \n"    \
+"hackbox cat <files> \n"                        \
+"hackbox help \n"
 
 int main(int argc, char **argv)
 {
@@ -11,8 +17,8 @@ int main(int argc, char **argv)
     {
         if (argc == 1)
         {
-            // show help
-            return 0;
+            printf(HELP);
+            return 1;
         }
         argv++;
         argc--;
@@ -39,7 +45,7 @@ int main(int argc, char **argv)
     }
     else if (strcmp(bin_name, "help") == 0)
     {
-        printf("help\n");
+        printf(HELP);
     }
     return 0;
 }
