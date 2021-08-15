@@ -25,7 +25,9 @@ int main(int argc, char **argv)
     }
     char *bin_name = *argv;
     if (argc > 1)
+    {
         argv++;
+    }
     argc--;
     if (strcmp(bin_name, "ls") == 0)
     {

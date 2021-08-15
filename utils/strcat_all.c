@@ -11,12 +11,13 @@ char *strcat_all(int n, ...)
     int total_len = 0;
     while (n--)
     {
-        my_arg = va_arg(arg_list, char*);
+        my_arg = va_arg(arg_list, char *);
         total_len += strlen(my_arg);
         
         res = realloc(res, total_len);
         strcat(res, my_arg);
     }
+    va_end(arg_list);
     return res;
 }
 

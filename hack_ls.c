@@ -39,16 +39,24 @@ int hack_ls(char **dirs, int n)
 
     int print_dir_name = 0;
     if (n > 1)
+    {
         print_dir_name = 1;
+    }
 
     while (n-- > 0)
     {
         if (print_dir_name)
+        {
             printf("%s:\n", *dirs);
+        }
         if (iterate_dir(*(dirs++), lst))
+        {
             ret = ERR_CODE;
+        }
         if (n > 0)
+        {
             printf("\n");
+        }
     }
     return ret;
 }

@@ -27,7 +27,9 @@ int hack_cp(char **args, int n)
         copy(src, dest);
     }
     else
+    {
         fprintf(stderr, ERR_ONE_OP, *args);
+    }
     return 0; 
 }
 
